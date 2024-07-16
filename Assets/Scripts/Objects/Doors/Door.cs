@@ -9,12 +9,14 @@ public class Door : MonoBehaviour
     // Variables Privadas
     private bool isOpen;
     private Animator animator;
-    
+    private AudioSource doorAS;
+
     // Start is called before the first frame update
     void Start()
     {
         // Inicializacion de Variables
         animator = GetComponent<Animator>();
+        doorAS = GetComponent<AudioSource>();
         isOpen = true;
         UpdateAnimation();
     }
@@ -23,6 +25,7 @@ public class Door : MonoBehaviour
     public void SetIsOpen(bool _state)
     {
         isOpen = _state;
+        doorAS.Play();
         UpdateAnimation();
     }
 
